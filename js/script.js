@@ -73,23 +73,30 @@ window.addEventListener('DOMContentLoaded', function () {
             if (t.total <= 0) {
                 clearInterval(timeInterval);
             }
-            // TODO время прошло, результат -
+
 
         }
     }
 
     setClock('timer', deadLine)
 
-    // while (hours != 0) {
-    //     if (seconds > 0)
-    // };
+    // Modal
+
+    let more = document.querySelector('.more'),
+        overlay = document.querySelector('.overlay'),
+        close = document.querySelector('.popup-close');
+
+    more.addEventListener('click', function () {
+        overlay.style.display = 'block';
+        this.classList.add('more-splash');
+        document.body.style.overflow = 'hidden'; // запрет прокрутки страницы
+    });
+    close.addEventListener('click', function () {
+        overlay.style.display = 'none';
+        more.classList.remove('more-splash');
+        document.body.style.overflow = '';
+    })
+
+
 });
 
-
-/* <div class="timer-numbers" id="timer">
-<span class="hours">18</span>
-<span>:</span>
-<span class="minutes">20</span>
-<span>:</span>
-<span class="seconds">11</span>
-</div> */
